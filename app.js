@@ -3,13 +3,12 @@ const dotenv = require('dotenv');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const port = 3000;
 
 //middleware
 app.use(bodyParser.json())
 app.use(morgan('tiny'));
-
-dotenv.config();
 
 app.get('/kids', (req, res) => {
     const kid = {
@@ -26,6 +25,16 @@ app.post('/kids', (req, res) => {
     res.send(newKid);
 })
 
+//connecting app with mongo database through connection string in .env file
+dotenv.config();
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>{
+    console.log('Database connected')
+})
+.catch((err)=>{
+    console.log(err)
+});
+
 app.listen(port, ()=>{
-    console.log(`server is running on ${port}`);
+    console.log(`Server is running on ${port}`);
 })
