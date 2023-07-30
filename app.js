@@ -2,10 +2,12 @@ const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const port = 3000;
 
 //middleware
 app.use(bodyParser.json())
+app.use(morgan('tiny'));
 
 dotenv.config();
 
