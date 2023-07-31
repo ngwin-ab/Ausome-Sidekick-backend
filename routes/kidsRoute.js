@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/', (req, res) => {
     const kid = new Kid ({
         name: req.body.name,
-        avtUrl: req.body.avtUrl,
+        imgPath: req.body.imgPath,
     })
 
     kid.save().then((createdKid=> {
