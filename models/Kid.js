@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const Chart = require('../models/Chart');
+// const {Chart} = require('../models/Chart');
 
 const KidSchema = mongoose.Schema({
     name: {type: String, required: true},
@@ -7,4 +7,4 @@ const KidSchema = mongoose.Schema({
     // charts: [Chart]
 });
 
-module.exports = mongoose.model('Kid', KidSchema);
+exports.Kid = mongoose.model('Kid', KidSchema);

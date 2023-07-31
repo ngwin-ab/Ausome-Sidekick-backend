@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router(); 
-const Kid = require('../models/Kid');
+const {Kid} = require('../models/Kid');
 
 // =================== GET ALL KIDS ========================
 router.get('/', async (req, res) => {
@@ -29,7 +29,6 @@ router.post('/', (req, res) => {
             success: false
         })
     })
-
 })
 
 module.exports = router;
