@@ -1,30 +1,20 @@
-import Kid from './models/Kid';
 const express = require('express');
 const dotenv = require('dotenv');
-const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const kidsRoute=require('./routes/kidsRoute');
+
 const port = 3000;
 
+const app = express();
+
 //middleware
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
-app.get('/kids', (req, res) => {
-    const kid = {
-        id: 1,
-        name: 'weee',
-        image: 'some_url',
-    }
-    res.send(kid);
-})
-
-app.post('/kids', (req, res) => {
-    const kid = req.body;
-    console.log(newKid)
-    res.send(newKid);
-})
+//routes
+app.use('/kids', kidsRoute);
 
 //connect app with mongo database through connection string in .env file
 dotenv.config();

@@ -8,4 +8,4 @@ const ChartSchema = mongoose.Schema({
     consequence: {type: String, required: true},
 });
 
-const Chart = mongoose.model('Chart', ChartSchema);
+module.exports = mongoose.model('Chart', ChartSchema);
