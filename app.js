@@ -3,8 +3,12 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const kidsRoute=require('./routes/kidsRoute');
 const chartsRoute = require('./routes/chartsRoute');
+
+app.use(cors());
+app.options('*', cors())
 
 const port = 3000;
 
