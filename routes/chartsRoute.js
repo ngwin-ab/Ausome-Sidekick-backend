@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router(); 
 const {Chart} = require('../models/Chart');
+// const timestamp = moment(date).format('MM-DD-YYYY');
 
 // =================== GET ALL CHARTS ========================
 router.get('/', async (req, res) => {
@@ -17,7 +18,7 @@ router.get('/', async (req, res) => {
 // =================== POST NEW CHART ========================
 router.post('/', (req, res) => {
     const chart = new Chart ({
-        date: req.body.date,
+        timestamp: req.body.timestamp,
         setting: req.body.setting,
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,

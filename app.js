@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const kidsRoute=require('./routes/kidsRoute');
+const chartsRoute = require('./routes/chartsRoute');
 
 const port = 3000;
 
@@ -15,6 +16,8 @@ app.use(morgan('tiny'));
 
 //routes
 app.use('/kids', kidsRoute);
+app.use('/charts', chartsRoute);
+
 
 //connect app with mongo database through connection string in .env file
 dotenv.config();
