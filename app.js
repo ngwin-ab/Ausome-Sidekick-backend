@@ -1,3 +1,4 @@
+import Kid from './models/Kid';
 const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
@@ -20,12 +21,12 @@ app.get('/kids', (req, res) => {
 })
 
 app.post('/kids', (req, res) => {
-    const newKid = req.body;
+    const kid = req.body;
     console.log(newKid)
     res.send(newKid);
 })
 
-//connecting app with mongo database through connection string in .env file
+//connect app with mongo database through connection string in .env file
 dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
