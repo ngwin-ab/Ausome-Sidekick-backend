@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-// const {Chart} = require('../models/Chart');
+const {Chart} = require('../models/Chart');
 
 const KidSchema = mongoose.Schema({
     name: {type: String, required: true},
-    avtUrl: {type: String, required: true},
-    // charts: [Chart]
+    imgPath: {type: String, required: true},
+    charts: { type : Array , default : [] }
 });
 
 exports.Kid = mongoose.model('Kid', KidSchema);
