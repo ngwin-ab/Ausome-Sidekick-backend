@@ -6,13 +6,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const kidsRoute=require('./routes/kidsRoute');
 const chartsRoute = require('./routes/chartsRoute');
+const app = express();
+const port = 3000;
 
 app.use(cors());
 app.options('*', cors())
-
-const port = 3000;
-
-const app = express();
 
 //middleware
 app.use(bodyParser.json());
