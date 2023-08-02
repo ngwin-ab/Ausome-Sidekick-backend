@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const kid = await Kid.findById(req.params.id, {_id :0, __v:0}).populate({ path: 'chartsRecorded', select: 'timestamp setting antecedent behavior consequence' });
+    const kid = await Kid.findById(req.params.id, {__v: 0}).populate({ path: 'chartsRecorded', select: 'timestamp setting antecedent behavior consequence' });
 
     if (!kid) {
         res.status(404).json({ success: false, message: "Kid not found!" })
