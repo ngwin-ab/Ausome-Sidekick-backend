@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     kid.save().then((createdKid => {
         res.status(201).json(createdKid)
     })).catch((err) => {
-        res.status(500).json({
+        res.status(400).json({
             error: err,
             success: false
         })
@@ -43,10 +43,10 @@ router.post("/:id", (req, res) => {
 // =================== READ ========================
 
 router.get('/', async (req, res) => {
-    const kidList = await Kid.find();
+    const kidList = await Kid.find().select("-__v");
 
     if (!kidList) {
-        res.status(500).json({
+        res.status(404).json({
             success: false
         })
     }
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const kid = await Kid.findById(req.params.id).populate({ path: 'chartsRecorded', select: 'timestamp setting antecedent behavior consequence'});
+    const kid = await Kid.findById(req.params.id, {_id :0, __v:0}).populate({ path: 'chartsRecorded', select: 'timestamp setting antecedent behavior consequence' });
 
     if (!kid) {
         res.status(404).json({ success: false, message: "Kid not found!" })
