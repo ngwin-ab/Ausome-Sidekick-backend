@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 // =================== READ ========================
 
 router.get('/', async (req, res) => {
-    const chartList = await Chart.find();
+    const chartList = await Chart.find({}, '-__v');
 
     if (!chartList) {
         res.status(400).json({ success: false })
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const chart = await Chart.findById(req.params.id, {__v: 0});
+    const chart = await Chart.findById(req.params.id, '-__v');
 
     if (!chart) {
         res.status(404).json({ success: false, message: "Chart not found!" })
