@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const chart = await Chart.findById(req.params.id);
+    const chart = await Chart.findById(req.params.id, {__v: 0});
 
     if (!chart) {
         res.status(404).json({ success: false, message: "Chart not found!" })
