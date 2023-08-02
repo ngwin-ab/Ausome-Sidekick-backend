@@ -8,3 +8,4 @@ env.bak/
 venv.bak/node_modules
 moment
 cors
+node_modules
