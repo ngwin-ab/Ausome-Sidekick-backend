@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const {ObjectId} = require('mongodb');
 const { Kid } = require('../models/Kid');
 const { Chart } = require('../models/Chart');
+
 
 // =================== CREATE ========================
 
@@ -21,7 +23,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// add a new chart for a specific kid 
+// add a new chart for a specific kid
 router.post("/:id", (req, res) => {
     // Create a new chart 
     const chart = new Chart({
@@ -30,7 +32,7 @@ router.post("/:id", (req, res) => {
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,
         consequence: req.body.consequence,
-        kid_id: req.params.id
+        kid_id: new ObjectId(req.params.id)
     });
 
     chart.save().then(createdChart => {

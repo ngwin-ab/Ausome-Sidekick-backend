@@ -10,7 +10,7 @@ const ChartSchema = mongoose.Schema({
     kid_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Kid',
-        required: true
+        // required: true
     }
 });
 
