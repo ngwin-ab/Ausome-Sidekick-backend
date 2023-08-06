@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const KidSchema = mongoose.Schema({
     name: { type: String, required: true },
-    imgPath: { type: String, required: true }
+    imgPath: { type: String }
 },
-    { id: false });
+    { id: true });
 
 KidSchema.virtual('chartsRecorded', {
     ref: 'Chart',

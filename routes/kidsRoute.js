@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 router.post("/:id", (req, res) => {
     // Create a new chart 
     const chart = new Chart({
-        timestamp: req.body.timestamp,
+        // timestamp: req.body.timestamp,
         setting: req.body.setting,
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,

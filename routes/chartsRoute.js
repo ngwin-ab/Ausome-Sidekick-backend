@@ -8,7 +8,7 @@ const {Chart} = require('../models/Chart');
 
 router.post('/', async (req, res) => {
     let chart = new Chart({
-        timestamp: req.body.timestamp,
+        // timestamp: req.body.timestamp,
         setting: req.body.setting,
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,
