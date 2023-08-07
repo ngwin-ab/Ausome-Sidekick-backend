@@ -10,7 +10,7 @@ const { Chart } = require('../models/Chart');
 router.post('/', (req, res) => {
     const kid = new Kid({
         name: req.body.name,
-        imgPath: req.body.imgPath,
+        avatarIndex: req.body.avatarIndex,
     });
 
     kid.save().then((createdKid => {
@@ -71,7 +71,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     Kid.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
-        imgPath: req.body.imgPath
+        avatar: req.body.avatar
     }, { new: true }).then(kid => {
         if (kid) {
             return res.status(200).send(kid)

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const KidSchema = mongoose.Schema({
     name: { type: String, required: true },
-    imgPath: { type: String }
+    avatarIndex: { type: Number }
 },
     { id: true });
 
