@@ -12,7 +12,7 @@ const ChartSchema = mongoose.Schema({
         ref: 'Kid',
         // required: true
     }
-});
+}, { id: true });
 
 // const timestamp = moment(date).format('MM-DD-YYYY');
 
