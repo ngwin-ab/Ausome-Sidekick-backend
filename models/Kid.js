@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const KidSchema = mongoose.Schema({
     name: { type: String, required: true },
-    avatarIndex: { type: Number }
+    avatarIndex: { type: Number, required: true},
+    age: { type: Number, required: true },
 },
     { id: true });
 

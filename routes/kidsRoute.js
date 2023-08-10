@@ -11,6 +11,7 @@ router.post('/', (req, res) => {
     const kid = new Kid({
         name: req.body.name,
         avatarIndex: req.body.avatarIndex,
+        age: req.body.age
     });
 
     kid.save().then((createdKid => {
@@ -71,7 +72,9 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     Kid.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
-        avatar: req.body.avatar
+        avatar: req.body.avatar,
+        age: req.body.age
+
     }, { new: true }).then(kid => {
         if (kid) {
             return res.status(200).send(kid)
