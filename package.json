@@ -15,5 +15,8 @@
   },
   "scripts": {
     "start": "nodemon app.js"
+  },
+  "engines": {
+    "node": "20.5.0"
   }
 }
