@@ -11,7 +11,8 @@ const port = process.env.PORT || 3000;
 
 //connect app with mongo database through connection string in .env file
 dotenv.config();
-mongoose.connect(process.env.MONGODB_URI||'mongodb://127.0.0.1:27017/ausome_db')
+// mongoose.connect(process.env.MONGODB_URI||'mongodb://127.0.0.1:27017/ausome_db')
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     app.use(cors());
     app.options('*', cors())
