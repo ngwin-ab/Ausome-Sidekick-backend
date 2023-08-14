@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URI)
     //routes
     app.use('/kids', kidsRoute);
     app.use('/charts', chartsRoute);
+    
     console.log('Database connected')
     app.listen(port, ()=>{
         console.log(`Server is running on ${port}`);
