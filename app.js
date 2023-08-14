@@ -23,7 +23,7 @@ app.use('/charts', chartsRoute);
 
 //connect app with mongo database through connection string in .env file
 dotenv.config();
-mongoose.connect(process.env.MONGO_URI||'mongodb://127.0.0.1:27017/ausome_db')
+mongoose.connect(process.env.MONGODB_URI||'mongodb://127.0.0.1:27017/ausome_db')
 .then(()=>{
     console.log('Database connected')
 })
