@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     const kid = new Kid({
         name: req.body.name,
         avatarIndex: req.body.avatarIndex,
-        age: req.body.age
+        like: req.body.like
     });
 
     kid.save().then((createdKid => {
@@ -73,7 +73,7 @@ router.put('/:id', async (req, res) => {
     Kid.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         avatar: req.body.avatar,
-        age: req.body.age
+        like: req.body.like
 
     }, { new: true }).then(kid => {
         if (kid) {

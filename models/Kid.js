@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const KidSchema = mongoose.Schema({
     name: { type: String, required: true },
     avatarIndex: { type: Number, required: true},
-    age: { type: Number, required: true },
+    like: { type: String, required: true },
 },
     { id: true });
 
