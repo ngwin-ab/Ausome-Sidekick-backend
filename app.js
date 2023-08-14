@@ -7,7 +7,7 @@ const cors = require('cors');
 const kidsRoute=require('./routes/kidsRoute');
 const chartsRoute = require('./routes/chartsRoute');
 const app = express();
-const port = 80;
+const port = process.env.PORT || 443;
 
 //connect app with mongo database through connection string in .env file
 dotenv.config();
