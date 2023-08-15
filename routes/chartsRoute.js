@@ -9,10 +9,10 @@ const {Chart} = require('../models/Chart');
 router.post('/', async (req, res) => {
     let chart = new Chart({
         // timestamp: req.body.timestamp,
-        setting: req.body.setting,
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,
-        consequence: req.body.consequence
+        consequence: req.body.consequence,
+        function: req.body.setting
     })
 
     chart = await chart.save();
@@ -51,10 +51,10 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     Chart.findByIdAndUpdate(req.params.id, {
                     // timestamp: req.body.timestamp,
-                    setting: req.body.setting,
                     antecedent: req.body.antecedent,
                     behavior: req.body.behavior,
                     consequence: req.body.consequence,
+                    function: req.body.function
                 }, { new: true} ).then(chart => {
         if (chart) {
             return res.status(200).send(chart)
