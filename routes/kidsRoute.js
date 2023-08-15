@@ -29,10 +29,10 @@ router.post("/:id", (req, res) => {
     // Create a new chart 
     const chart = new Chart({
         // timestamp: req.body.timestamp,
-        setting: req.body.setting,
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,
         consequence: req.body.consequence,
+        function: req.body.function,
         kid_id: new ObjectId(req.params.id)
     });
 
@@ -58,7 +58,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const kid = await Kid.findById(req.params.id, '-__v').populate({ path: 'chartsRecorded', select: 'timestamp setting antecedent behavior consequence' });
+    const kid = await Kid.findById(req.params.id, '-__v').populate({ path: 'chartsRecorded', select: 'antecedent behavior consequence function' });
 
     if (!kid) {
         res.status(404).json({ success: false, message: "Kid not found!" })

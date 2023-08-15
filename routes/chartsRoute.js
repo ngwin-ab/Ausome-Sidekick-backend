@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
         antecedent: req.body.antecedent,
         behavior: req.body.behavior,
         consequence: req.body.consequence,
-        function: req.body.setting
+        function: req.body.function
     })
 
     chart = await chart.save();
